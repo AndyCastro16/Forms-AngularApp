@@ -1,29 +1,31 @@
 <h2>Reactivos: Switches</h2>
-<hr>
+<hr class="my-3">
 
 
-<form autocomplete="off">
+<form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
 
     <!-- Radio -->
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Género</label>
-        <div class="col-sm-9">
-
+    <div class="grid grid-cols-4 items-center my-3">
+        <label class="col-span-2 text-lg">Género</label>
+        <div class="col-span-2">
             <div class="form-check">
-                <input class="form-check-input"
-                       type="radio"
-                       value="M"
-                       id="radioMasculino">
+                <input
+                        formControlName="gender"
+                        class="form-check-input"
+                        type="radio"
+                        value="M"
+                        id="radioMasculino">
                 <label class="form-check-label" for="radioMasculino">
                   Masculino
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input"
-                       type="radio"
-                       value="F"
-                       id="radioFemenino">
+                <input  formControlName="gender"
+                        class="form-check-input"
+                        type="radio"
+                        value="F"
+                        id="radioFemenino">
                 <label class="form-check-label" for="radioFemenino">
                   Femenino
                 </label>
@@ -33,14 +35,15 @@
     </div>
 
     <!-- Switches -->
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Notificaciones</label>
-        <div class="col-sm-9">
+    <div class="grid grid-cols-4 items-center my-3">
+        <label class="col-span-2 col-form-label">Notificaciones</label>
+        <div class="col-span-2">
 
             <div class="form-check form-switch mt-2">
-                <input class="form-check-input"
-                       type="checkbox"
-                       id="flexSwitchCheckChecked">
+                <input  formControlName="wantNotifications"
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexSwitchCheckChecked">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
             </div>
 
@@ -48,13 +51,14 @@
     </div>
 
     <!-- Switches -->
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label"></label>
+    <div class="grid grid-cols-4 items-center my-3">
+        <label class="col-span-2 col-form-label"></label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input"
-                       type="checkbox"
-                       id="flexCheckDefault">
+                <input  formControlName="termsAndConditions"
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Términos y condiciones de uso
                 </label>
@@ -81,15 +85,15 @@
 
 
 <h5>Valor del formulario</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.value | json }}</pre>
 <br>
 
 <h5>Persona</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.value.gender| json }}</pre>
 <br>
 
 <h5>Valid</h5>
-<pre>{{ 'object' | json }}</pre>
+<pre>{{ myForm.valid| json }}</pre>
 
 <!-- <h5>Términos</h5> -->
 <!-- <pre>{{ myForm.controls?.terminos?.errors | json }}</pre> -->
