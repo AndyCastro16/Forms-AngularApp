@@ -11,8 +11,8 @@ const routes: Routes = [
         component: RegisterComponent
       },
       {
-        path: '',
-        redirectTo: 'auth'
+        path: '**',
+        redirectTo: 'sign-up'
       }
     ]
   }
